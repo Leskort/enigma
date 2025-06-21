@@ -279,4 +279,19 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.head.appendChild(style);
   }
+
+  if (/Telegram/i.test(navigator.userAgent)) {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @media (max-width: 1100px) {
+        .column.my-work {
+          background: transparent !important;
+          border-radius: 0 !important;
+          box-shadow: none !important;
+          border: none !important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
 }); 
