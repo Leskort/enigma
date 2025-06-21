@@ -268,4 +268,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  if (/Telegram/i.test(navigator.userAgent)) {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      .comparison-container, .column {
+        will-change: auto !important;
+        box-shadow: none !important;
+      }
+    `;
+    document.head.appendChild(style);
+  }
 }); 
