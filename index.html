@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tron | Fullstack разработчик</title>
+  <!-- Ключевые мета-теги для SEO и мобильной оптимизации -->
+  <meta name="description" content="Создаю цифровые продукты, которые вдохновляют. Fullstack разработчик. Портфолио, услуги, контакты.">
+  <meta name="theme-color" content="#FFFFFF">
+  <!-- Подключение внешнего CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- === Header === -->
+  <header>
+    <div class="header-inner">
+      <a href="#hero" class="logo">TRON</a>
+      <nav class="desktop-nav" aria-hidden="false" tabindex="0">
+        <a href="#hero">Главная</a>
+        <a href="#about">Обо мне</a>
+        <a href="#benefits">Почему я?</a>
+        <a href="#services">Услуги</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#hosting-info">Хостинг</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <button class="theme-toggle desktop-theme-toggle" id="themeToggle" aria-label="Переключить тему">
+        <!-- SVG иконка темы (будет меняться JS) -->
+        <svg id="themeIcon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+      <!-- Кнопка-гамбургер для мобильного меню -->
+      <button class="burger" id="burgerBtn" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- Затемнение фона для мобильного меню -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <!-- Мобильное меню-панель -->
+    <nav class="mobile-nav" id="mobileNav">
+      <div class="mobile-nav-top">
+        <button class="theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему">
+          <svg id="mobileThemeIcon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2"/></svg>
+        </button>
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Закрыть меню">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="8" x2="24" y2="24"/><line x1="24" y1="8" x2="8" y2="24"/></svg>
+        </button>
+      </div>
+      <a href="#hero">Главная</a>
+      <a href="#about">Обо мне</a>
+      <a href="#benefits">Почему я?</a>
+      <a href="#services">Услуги</a>
+      <a href="#portfolio">Портфолио</a>
+      <a href="#hosting-info">Хостинг</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+  </header>
+  <!-- === Hero-секция === -->
+  <section class="hero" id="hero">
+    <h1 class="hero-title">Создаю цифровые продукты, которые вдохновляют</h1>
+    <div class="hero-subtitle">Tron | Fullstack разработчик<br><span style="color:var(--color-accent);font-weight:500;">Первый результат — уже через 1-3 дня!</span></div>
+    <a href="#contacts" class="hero-cta">Обсудить проект &rarr;</a>
+    <div style="margin-top:24px;font-size:1.08rem;opacity:0.7;">Ответ на ваш запрос — в течение 1-3 дней</div>
+  </section>
+  <!-- === Обо мне === -->
+  <section class="about" id="about" class="reveal-on-scroll">
+    <div class="about-photo">
+      <!-- Пример фото (замените на свое) -->
+      <img src="./images/tron.jpg" alt="Tron">
+    </div>
+    <div class="about-text">
+      <h2>Обо мне</h2>
+      <p>Я — Tron, fullstack разработчик с 4+ летним опытом. Создаю современные, быстрые и удобные веб-приложения для бизнеса и стартапов. Моя цель — делать продукты, которыми хочется пользоваться каждый день.</p>
+      <p>В работе ценю минимализм, внимание к деталям и чистый код. Открыт к новым проектам и интересным задачам.</p>
+    </div>
+  </section>
+  <!-- Преимущества -->
+  <section class="benefits" id="benefits" style="max-width:900px;margin:0 auto 48px auto;padding:0 24px;">
+    <div class="benefits-header" style="text-align:center; margin-bottom:32px;">
+      <span class="benefits-icon" style="display:inline-block;vertical-align:middle;margin-bottom:8px;">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="21" stroke="url(#b1)" stroke-width="2"/><path d="M14 23l5 5 11-11" stroke="url(#b2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="b1" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#4FC3F7"/><stop offset="1" stop-color="#0071E3"/></linearGradient><linearGradient id="b2" x1="14" y1="28" x2="30" y2="12" gradientUnits="userSpaceOnUse"><stop stop-color="#4FC3F7"/><stop offset="1" stop-color="#0071E3"/></linearGradient></defs></svg>
+      </span>
+      <h2 class="benefits-title" style="font-size:2rem;font-weight:700;letter-spacing:-0.01em;margin:0;">Почему выбирают меня?</h2>
+      <div class="benefits-subtitle" style="font-size:1.08rem;opacity:0.7;margin-top:8px;">6 причин доверить мне ваш проект</div>
+      <div class="benefits-underline" style="width:80px;height:4px;background:linear-gradient(90deg,#4FC3F7,#0071E3);border-radius:2px;margin:18px auto 0 auto;"></div>
+    </div>
+    <ul class="benefits-list">
+      <li class="benefit-item reveal-on-scroll">
+        <span class="benefit-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </span>
+        <div class="benefit-text"><b>Скорость</b>: первый прототип — за 1-3 дня</div>
+      </li>
+      <li class="benefit-item reveal-on-scroll">
+        <span class="benefit-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </span>
+        <div class="benefit-text"><b>Выгоды</b>: решаю задачи бизнеса, а не просто делаю сайты</div>
+      </li>
+      <li class="benefit-item reveal-on-scroll">
+        <span class="benefit-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+        </span>
+        <div class="benefit-text"><b>Экспертиза</b>: 7+ лет, реальные проекты</div>
+      </li>
+      <li class="benefit-item reveal-on-scroll">
+        <span class="benefit-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor" stroke-width="2"></path><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" stroke-width="2"></path></svg>
+        </span>
+        <div class="benefit-text"><b>Прозрачность</b>: четкая структура, понятные опции</div>
+      </li>
+      <li class="benefit-item reveal-on-scroll">
+        <span class="benefit-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2"></path><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2"></path></svg>
+        </span>
+        <div class="benefit-text"><b>Отзывы</b>: довольные клиенты (см. ниже)</div>
+      </li>
+      <li class="benefit-item reveal-on-scroll">
+        <span class="benefit-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" stroke="currentColor" stroke-width="2"></path><path d="M15 3h6v6M10 14L21 3" stroke="currentColor" stroke-width="2"></path></svg>
+        </span>
+        <div class="benefit-text"><b>Просто начать</b>: достаточно пары вопросов</div>
+      </li>
+    </ul>
+  </section>
+  <!-- === Ручная работа vs. Конструктор === -->
+  <section class="code-vs-constructor reveal-on-scroll">
+    <div class="arena-header">
+      <h2 class="gradient-title">Конструктор vs. Код</h2>
+      <p class="subtitle">Почему индивидуальная разработка — это инвестиция, а не затраты</p>
+    </div>
+    <div class="comparison-container">
+      <div class="column constructor">
+        <div class="dialog-bubble response-bubble">Нет, я, пожалуй, пойду.</div>
+        <h3>Сайты на конструкторах (Tilda,WordPress и др.)</h3>
+        <ul>
+          <li>🐌 **Медленная работа:** Лишний код и десятки ненужных скриптов замедляют загрузку, что раздражает посетителей.</li>
+          <li>🎨 **Типовой дизайн:** Ваш сайт рискует выглядеть как сотни других, теряя индивидуальность.</li>
+          <li>🔌 **Хрупкая система:** Работа зависит от множества плагинов от разных авторов. Один сломанный плагин — и сайт может перестать работать.</li>
+          <li>⚙️ **Жесткие рамки:** Любая уникальная функция или элемент дизайна упирается в технические ограничения платформы.</li>
+        </ul>
+      </div>
+      <div class="comparison-vs">VS</div>
+      <div class="column my-work">
+        <div class="dialog-bubble taunt-bubble">Махаться будешь?</div>
+        <h3>Моя работа: чистый код</h3>
+        <ul>
+          <li>🚀 **Молниеносная скорость:** Загружается только то, что нужно. Сайт летает, клиенты довольны.</li>
+          <li>✨ **100% уникальность:** Дизайн и анимации, ограниченные только воображением, а не возможностями платформы.</li>
+          <li>🛡️ **Надежность как швейцарских часов:** Простая архитектура без лишних "деталей". Меньше элементов — меньше шансов, что что-то пойдет не так.</li>
+          <li>💎 **Полная свобода, а не рамки:** Ваша идея не будет зажата в рамки шаблона. Код пишется под вашу задачу, а не наоборот.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="battle-explanation"></div>
+    <div class="code-snippet-container">
+      <blockquote class="developer-motto">
+        "Чистый код — не просто эстетика. Это скорость, надежность и уважение к вашему будущему."
+      </blockquote>
+      <pre><code><span class="code-comment">// Вот как это выглядит на практике:</span>
+<span class="code-tag">&lt;div</span> <span class="code-attr">class=</span><span class="code-string">"hero-section"</span><span class="code-tag">&gt;</span>
+  <span class="code-tag">&lt;h1</span> <span class="code-attr">class=</span><span class="code-string">"main-title"</span><span class="code-tag">&gt;</span>Ваш заголовок<span class="code-tag">&lt;/h1&gt;</span>
+  <span class="code-tag">&lt;p</span> <span class="code-attr">class=</span><span class="code-string">"subtitle"</span><span class="code-tag">&gt;</span>Вдохновляющий подзаголовок.<span class="code-tag">&lt;/p&gt;</span>
+  <span class="code-tag">&lt;button</span> <span class="code-attr">class=</span><span class="code-string">"cta-button"</span><span class="code-tag">&gt;</span>Призыв к действию<span class="code-tag">&lt;/button&gt;</span>
+<span class="code-tag">&lt;/div&gt;</span>
+</code></pre>
+      <div class="arrow-down">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+      </div>
+      <div class="result-preview-container">
+        <div class="result-preview">
+          <h1 class="main-title-preview">Ваш заголовок</h1>
+          <p class="subtitle-preview">Вдохновляющий подзаголовок.</p>
+          <button class="cta-button-preview">Призыв к действию</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- === Услуги === -->
+  <section class="services" id="services">
+    <h2 style="text-align:center; margin-bottom:40px;" class="reveal-on-scroll">Услуги</h2>
+    <div class="services-list">
+      <div class="service-card reveal-on-scroll">
+        <div class="service-icon">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M12 8l-8 8 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 8l8 8-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="service-title">Веб-разработка</div>
+        <div class="service-desc">Frontend и backend на современных технологиях. Первый результат — за 1-3 дня. Чистый, поддерживаемый код.</div>
+      </div>
+      <div class="service-card reveal-on-scroll">
+        <div class="service-icon">
+          <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="10" stroke="currentColor" stroke-width="2"/><path d="M16 6v20M6 16h20" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <div class="service-title">UI/UX Дизайн</div>
+        <div class="service-desc">Минималистичный, интуитивный интерфейс. Дизайн, вдохновленный Apple. Быстрые прототипы — 1-3 дня.</div>
+      </div>
+      <div class="service-card reveal-on-scroll">
+        <div class="service-icon">
+          <svg viewBox="0 0 32 32" fill="none"><rect x="6" y="10" width="20" height="12" rx="4" stroke="currentColor" stroke-width="2"/><path d="M16 22v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="service-title">Консультации</div>
+        <div class="service-desc">Помощь в выборе технологий, аудит проектов, обучение команд. Ответ — в течение 1-3 дней.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === Портфолио === -->
+  <section class="portfolio" id="portfolio">
+    <div class="reveal-on-scroll portfolio-header">
+      <svg class="portfolio-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#portfolioIconGradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <defs>
+          <linearGradient id="portfolioIconGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#4FC3F7"/>
+            <stop offset="100%" stop-color="#0071E3"/>
+          </linearGradient>
+        </defs>
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+      </svg>
+      <h2 style="margin: 0;">Портфолио</h2>
+      <div class="portfolio-underline"></div>
+    </div>
+    <p style="text-align:center; max-width: 550px; margin: 16px auto 40px auto; opacity: 0.8; font-size: 1.05rem; line-height: 1.5;" class="reveal-on-scroll">
+      Это не просто галерея работ. Это живая история сотрудничества, где каждый проект — это доверие клиента и результат, которым я горжусь.
+    </p>
+    <div class="portfolio-list">
+      <div class="portfolio-item reveal-on-scroll" 
+           data-title="Сайт-визитка для BMX-райдера" 
+           data-img="images/portfolio/slava-bmx-extreme.jpg"
+           data-description="<b>Задача:</b> Создать стильный и динамичный сайт-визитку для профессионального BMX-райдера, который бы отражал его личность и достижения.<br><br><b>Решение:</b> Разработан эффектный лендинг с параллакс-эффектами и плавной анимацией. Сайт рассказывает историю райдера, демонстрирует его достижения, спонсоров и мерч. Особое внимание было уделено визуальной части и адаптивности для мобильных устройств.<br><br><b>Фишка:</b> Реализована плавная анимация появления элементов при скролле, что создает ощущение динамики и вовлеченности.<br><br><b>Технологии:</b> HTML5, CSS3 (Flexbox, Grid), JavaScript, GSAP, Netlify."
+           data-link="https://slavabmx.netlify.app/">
+        <img class="portfolio-img" src="images/portfolio/slava-bmx-extreme.jpg" alt="Сайт-визитка для BMX-райдера">
+        <div class="portfolio-title">Сайт-визитка "Slava BMX"</div>
+      </div>
+      <div class="portfolio-item reveal-on-scroll" 
+           data-title="Сайт-визитка для музыканта" 
+           data-img="images/portfolio/leskort.png"
+           data-description="<b>Задача:</b> Создать ультра-минималистичный сайт-визитку для музыканта, который бы быстро направлял аудиторию на ключевые площадки.<br><br><b>Решение:</b> Разработана стильная страница-агрегатор ссылок (link-in-bio) с тёмной темой и неоновыми акцентами. Сайт служит единой точкой входа для фанатов, ведущей на Instagram, TikTok и SoundCloud.<br><br><b>Фишка:</b> Скорость загрузки и простота. Ничего лишнего, только самые важные ссылки, что идеально для мобильных пользователей.<br><br><b>Технологии:</b> HTML5, CSS3, JavaScript."
+           data-link="https://bugalteria.netlify.app/">
+        <img class="portfolio-img" src="images/portfolio/leskort.png" alt="Сайт-визитка для музыканта" style="object-fit: contain; background: #111; padding: 2rem;">
+        <div class="portfolio-title">Сайт-визитка "leskort"</div>
+      </div>
+      <div class="portfolio-item reveal-on-scroll" 
+           data-title="Магазин доставки здорового питания" 
+           data-img="images/portfolio/logo4.png"
+           data-description="<b>Задача:</b> Разработать e-commerce платформу, которая трансформировалась из обычного интернет-магазина в сервис по доставке здорового питания.<br><br><b>Решение:</b> Создан гибкий сайт с каталогом, корзиной и системой заказов. Архитектура проекта позволила легко адаптировать его под новую бизнес-модель, сфокусированную на доставке.<br><br><b>Ключевая особенность:</b> Этот кейс показывает мою способность создавать не статичные сайты, а развивающиеся проекты, которые могут меняться вместе с целями бизнеса.<br><br><b>Технологии:</b> HTML5, CSS3, JavaScript, PHP."
+           data-link="http://r2918234.beget.tech/">
+        <img class="portfolio-img" src="images/portfolio/logo4.png" alt="Магазин доставки здорового питания" style="object-fit: contain; background: #f8f8f8; padding: 2rem;">
+        <div class="portfolio-title">Доставка здорового питания</div>
+      </div>
+    </div>
+    <!-- Модальное окно для портфолио -->
+    <div class="modal" id="portfolioModal">
+      <div class="modal-content">
+        <button class="modal-close" id="modalClose" aria-label="Закрыть">×</button>
+        <img id="modalImg" src="" alt="" style="width:100%; border-radius:12px; margin-bottom:24px;">
+        <div id="modalTitle" style="font-size:1.3rem; font-weight:500;"></div>
+        <div id="modalDescription" style="margin-top: 16px; opacity: 0.85; line-height: 1.6; font-size: 1rem;"></div>
+        <a href="#" id="modalLink" class="modal-link" target="_blank" rel="noopener">Посмотреть сайт &rarr;</a>
+      </div>
+    </div>
+  </section>
+  <!-- === Информация о хостинге === -->
+  <section id="hosting-info" class="hosting-info reveal-on-scroll" style="max-width: 800px; margin: 56px auto; padding: 32px; background: var(--color-card-hover); border: 1px solid var(--color-border); border-radius: 16px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+    <div class="hosting-info-icon" style="color: var(--color-accent);">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+    </div>
+    <h3 style="font-size: 1.5rem; margin: 0;">Важная информация о хостинге</h3>
+    <p style="opacity: 0.85; line-height: 1.6; max-width: 650px; margin: 0;">
+      Я не предоставляю услуги хостинга. Чтобы вы могли оценить и протестировать готовую работу, я бесплатно размещу проект на демонстрационной площадке (например, Netlify).
+      <br><br>
+      <strong>Нужна помощь с запуском?</strong> За дополнительную плату я помогу развернуть проект на хостинге, который вы выберете и приобретёте.
+    </p>
+    <details class="hosting-details">
+      <summary>Что такое хостинг?</summary>
+      <div class="hosting-explanation">
+        Простыми словами, хостинг — это аренда места в интернете, где будет «жить» ваш сайт, чтобы он был доступен всем пользователям 24/7. Это как цифровой «участок земли» для вашего проекта.
+      </div>
+    </details>
+    <details class="hosting-details">
+      <summary>А что такое домен?</summary>
+      <div class="hosting-explanation">
+        Домен — это уникальное имя вашего сайта в интернете (например, `yandex.ru` или `google.com`). Это адрес, по которому пользователи находят ваш проект. Домен и хостинг — это две разные, но необходимые части для запуска сайта.
+      </div>
+    </details>
+    <details class="hosting-details">
+      <summary>На что обратить внимание?</summary>
+      <div class="hosting-explanation">
+        <ul style="padding-left: 20px; margin: 0; text-align: left;">
+          <li style="margin-bottom: 12px;"><strong>Домен лучше покупать отдельно.</strong> Многие хостинги предлагают купить домен у них. Это удобно, но может создать «зависимость». Регистрируя домен у независимого регистратора, вы получаете полный контроль над своим главным активом. Я могу помочь с выбором и настройкой.</li>
+          <li><strong>Дешевый хостинг — не всегда лучший.</strong> Низкая цена часто означает медленную скорость, плохую техподдержку и скрытые платежи при продлении. Я помогу подобрать надежный хостинг под ваши задачи и бюджет.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- Отзывы -->
+  <section class="testimonials" id="testimonials" style="max-width:900px;margin:56px auto 0 auto;padding:0 24px;">
+    <h2 style="text-align:center;margin-bottom:32px;" class="reveal-on-scroll">Отзывы клиентов</h2>
+    <div style="display:grid;gap:24px;grid-template-columns:1fr 1fr;">
+      <div class="reveal-on-scroll" style="background:var(--color-card-hover);border-radius:12px;padding:24px;">
+        <div style="font-size:1.1rem;font-weight:500;margin-bottom:8px;">Анна, стартапер</div>
+        <div style="font-size:1rem;opacity:0.85;">«Алексей сделал MVP за 2 дня! Всё понятно, быстро, результат превзошёл ожидания.»</div>
+      </div>
+      <div class="reveal-on-scroll" style="background:var(--color-card-hover);border-radius:12px;padding:24px;">
+        <div style="font-size:1.1rem;font-weight:500;margin-bottom:8px;">Игорь, владелец бизнеса</div>
+        <div style="font-size:1rem;opacity:0.85;">«Очень доволен скоростью и качеством. Уже через 3 дня запустили новый сайт!»</div>
+      </div>
+    </div>
+  </section>
+  <!-- === Контакты === -->
+  <section class="contacts" id="contacts">
+    <h2 style="text-align:center; margin-bottom:40px;" class="reveal-on-scroll">Контакты</h2>
+    <form class="contacts-form reveal-on-scroll" autocomplete="off" onsubmit="return false;">
+      <div class="input-group">
+        <label for="name">Имя</label>
+        <input type="text" id="name" name="name" required maxlength="32" placeholder="Ваше имя">
+      </div>
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required maxlength="64" placeholder="Ваш email">
+      </div>
+      <div class="input-group">
+        <label for="message">Сообщение</label>
+        <textarea id="message" name="message" required maxlength="500" placeholder="Опишите задачу, сроки, желаемый результат. Например: "Хочу сайт за 1-3 дня, нужен быстрый запуск MVP, важна поддержка после релиза""></textarea>
+      </div>
+      <div style="font-size:0.98rem;opacity:0.7;margin-bottom:8px;">С чего начнем? Опишите задачу или просто напишите "Хочу консультацию" — отвечу в течение 1-3 дней!</div>
+      <button type="submit">Отправить</button>
+      <div id="formStatus" style="min-height:24px; font-size:0.98rem; color:var(--color-accent);"></div>
+    </form>
+  </section>
+  <!-- === Футер === -->
+  <footer>
+    <div>&copy; 2025 Tron. Все права защищены.</div>
+    <div class="footer-socials">
+      <a href="#" aria-label="Telegram"><svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M21.94 2.73a1.5 1.5 0 0 0-1.6-.22L2.7 10.1a1.5 1.5 0 0 0 .13 2.8l4.7 1.6 2.1 6.3a1.5 1.5 0 0 0 2.7.2l2.2-3.7 4.7 3.5a1.5 1.5 0 0 0 2.3-1l3-16a1.5 1.5 0 0 0-.46-1.57z" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      <a href="#" aria-label="GitHub"><svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85.004 1.7.12 2.5.34 1.9-1.33 2.74-1.05 2.74-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      <a href="#" aria-label="LinkedIn"><svg width="22" height="22" fill="none" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v6M7 7v.01M12 10v6m0 0v-3a2 2 0 1 1 4 0v3" stroke="currentColor" stroke-width="1.5"/></svg></a>
+    </div>
+  </footer>
+  <!-- Кнопка "Вверх" -->
+  <button id="scrollToTopBtn" aria-label="Наверх">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+  </button>
+  <!-- Подключение внешнего JS -->
+  <script src="script.js"></script>
+</body>
+</html> 
