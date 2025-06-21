@@ -880,20 +880,8 @@ body.menu-open .burger { display: none !important; }
   border-radius: 2px;
 }
 .code-vs-constructor {
-  position: relative;
-  z-index: 1;
-  max-width: 900px;
-  margin: 56px auto;
-  padding: 32px 24px;
-  text-align: center;
-}
-.code-vs-constructor::before {
-  content: '';
-  position: absolute;
-  inset: 0;
   background: var(--color-card-hover);
   border-radius: 16px;
-  z-index: 0;
 }
 .code-vs-constructor .subtitle {
   font-size: 1.08rem;
