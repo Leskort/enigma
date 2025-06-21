@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           const explanationEl = battleSection.querySelector('.battle-explanation');
           if (explanationEl) {
-            const isMobile = window.innerWidth <= 900;
+            const isMobile = window.innerWidth <= 1100;
             const textDelay = isMobile ? 700 : 23000;
 
             setTimeout(() => {
@@ -167,6 +167,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Так шаблоны (Tilda, WordPress) пасуют перед реальными задачами."
               ]);
             }, textDelay); // Динамическая задержка
+          }
+
+          const isMobile = window.innerWidth <= 1100;
+          if (isMobile) {
+            // На мобильных — сразу центрируем победителя
+            battleSection.classList.add('battle-won');
+            setTimeout(() => {
+              const loser = battleSection.querySelector('.column.constructor');
+              const vs = battleSection.querySelector('.comparison-vs');
+              if (loser) loser.classList.add('hide');
+              if (vs) vs.classList.add('hide');
+            }, 2000);
+          } else {
+            // На десктопе — только через задержку
+            setTimeout(() => {
+              battleSection.classList.add('battle-won');
+              setTimeout(() => {
+                const loser = battleSection.querySelector('.column.constructor');
+                const vs = battleSection.querySelector('.comparison-vs');
+                if (loser) loser.classList.add('hide');
+                if (vs) vs.classList.add('hide');
+              }, 2000);
+            }, 23200);
           }
 
           observer.unobserve(battleTrigger); // Запускаем всё один раз
@@ -210,4 +233,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     type();
   }
+
+  // 1. Функция сброса состояния секции
+  function resetBattleSection() {
+    battleSection.classList.remove('battle-active', 'battle-won');
+    const loser = battleSection.querySelector('.column.constructor');
+    const vs = battleSection.querySelector('.comparison-vs');
+    if (loser) loser.classList.remove('hide');
+    if (vs) vs.classList.remove('hide');
+  }
+
+  function isSectionInViewport(section) {
+    const rect = section.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+    );
+  }
+
+  document.querySelectorAll('a[href="#code-vs-constructor"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const section = document.getElementById('code-vs-constructor');
+      const yOffset = -150; // увеличенный отступ, чтобы секция была чуть ниже верха
+      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    });
+  });
 }); 
