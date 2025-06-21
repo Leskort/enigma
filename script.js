@@ -251,13 +251,21 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 
+  function isTelegramWebView() {
+    return /Telegram/i.test(navigator.userAgent);
+  }
+
   document.querySelectorAll('a[href="#code-vs-constructor"]').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const section = document.getElementById('code-vs-constructor');
-      const yOffset = -150; // увеличенный отступ, чтобы секция была чуть ниже верха
-      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      if (isTelegramWebView()) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        const yOffset = -150;
+        const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
     });
   });
 }); 
