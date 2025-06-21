@@ -284,11 +284,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const style = document.createElement('style');
     style.innerHTML = `
       @media (max-width: 1100px) {
+        .code-vs-constructor,
+        .comparison-container,
+        .column,
         .column.my-work {
           background: transparent !important;
           border-radius: 0 !important;
           box-shadow: none !important;
           border: none !important;
+        }
+        .code-vs-constructor {
+          background: #232326 !important; /* или твой основной фон */
         }
       }
     `;
