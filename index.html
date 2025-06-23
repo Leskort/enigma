@@ -328,7 +328,7 @@
   <!-- === Контакты === -->
   <section class="contacts" id="contacts">
     <h2 style="text-align:center; margin-bottom:40px;" class="reveal-on-scroll">Контакты</h2>
-    <form class="contacts-form reveal-on-scroll" autocomplete="off" onsubmit="return false;">
+    <form class="contacts-form reveal-on-scroll" autocomplete="off" action="https://formspree.io/f/xqabydok" method="POST">
       <div class="input-group">
         <label for="name">Имя</label>
         <input type="text" id="name" name="name" required maxlength="32" placeholder="Ваше имя">
@@ -339,8 +339,9 @@
       </div>
       <div class="input-group">
         <label for="message">Сообщение</label>
-        <textarea id="message" name="message" required maxlength="500" placeholder="Опишите задачу, сроки, желаемый результат. Например: "Хочу сайт за 1-3 дня, нужен быстрый запуск MVP, важна поддержка после релиза""></textarea>
+        <textarea id="message" name="message" required maxlength="500" placeholder="Опишите задачу, сроки, желаемый результат. Например: &quot;Хочу сайт за 1-3 дня, нужен быстрый запуск MVP, важна поддержка после релиза&quot;"></textarea>
       </div>
+      <input type="text" name="_gotcha" style="display:none">
       <div style="font-size:0.98rem;opacity:0.7;margin-bottom:8px;">С чего начнем? Опишите задачу или просто напишите "Хочу консультацию" — отвечу в течение 1-3 дней!</div>
       <button type="submit">Отправить</button>
       <div id="formStatus" style="min-height:24px; font-size:0.98rem; color:var(--color-accent);"></div>
