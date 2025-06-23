@@ -19,6 +19,7 @@ const mobileThemeIcon = document.getElementById('mobileThemeIcon');
 const origSetTheme = setTheme;
 function setThemeAll(theme) {
   origSetTheme(theme);
+  updateThemeColorMeta(theme);
   // Синхронизировать иконку на мобильной кнопке
   if (mobileThemeIcon) {
     if (theme === 'dark') {
@@ -41,7 +42,9 @@ setTheme = setThemeAll;
 (function() {
   const saved = localStorage.getItem('theme');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  setThemeAll(saved || (prefersDark ? 'dark' : 'light'));
+  const theme = saved || (prefersDark ? 'dark' : 'light');
+  setThemeAll(theme);
+  updateThemeColorMeta(theme);
 })();
 if (mobileThemeToggle) {
   mobileThemeToggle.onclick = function() {
@@ -300,4 +303,17 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.head.appendChild(style);
   }
-}); 
+});
+
+function updateThemeColorMeta(theme) {
+  let color = theme === 'dark' ? '#1D1D1F' : '#FFFFFF';
+  let meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) {
+    meta.setAttribute('content', color);
+  }
+  // Если есть второй meta с media, тоже обновим для надёжности
+  let metaDark = document.querySelector('meta[name="theme-color"][media]');
+  if (metaDark) {
+    metaDark.setAttribute('content', '#1D1D1F');
+  }
+} 
