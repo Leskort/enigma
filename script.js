@@ -89,16 +89,17 @@ function closeModal() {
   }
 }
 // === Форма контактов (валидация и имитация отправки) ===
-const form = document.querySelector('.contacts-form');
-const formStatus = document.getElementById('formStatus');
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
-  formStatus.textContent = 'Отправка...';
-  setTimeout(() => {
-    formStatus.textContent = 'Спасибо! Я свяжусь с вами в ближайшее время.';
-    form.reset();
-  }, 1200);
-});
+// const form = document.querySelector('.contacts-form');
+// const formStatus = document.getElementById('formStatus');
+// form.addEventListener('submit', function(e) {
+//   e.preventDefault();
+//   formStatus.textContent = 'Отправка...';
+//   setTimeout(() => {
+//     formStatus.textContent = 'Спасибо! Я свяжусь с вами в ближайшее время.';
+//     form.reset();
+//   }, 1200);
+// });
+
 // === Мобильное меню Apple-style ===
 const burgerBtn = document.getElementById('burgerBtn');
 const mobileNav = document.getElementById('mobileNav');
@@ -316,4 +317,41 @@ function updateThemeColorMeta(theme) {
   if (metaDark) {
     metaDark.setAttribute('content', '#1D1D1F');
   }
-} 
+}
+
+// === Отправка формы в Telegram ===
+const TOKEN = '7561238716:AAFa5_Ub7apYpni03jRCna2i7W9PXEVJfco'; // <-- сюда свой токен
+const CHAT_ID = '-1002601924575';           // <-- сюда свой chat_id
+const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.querySelector('.contacts-form');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      if (!this.checkValidity()) {
+        this.classList.add('was-validated');
+        return;
+      }
+
+      let message = '<b>Заявка с сайта</b>\n';
+      message += `<b>Имя:</b> ${this.name.value}\n`;
+      message += `<b>Email:</b> ${this.email.value}\n`;
+      message += `<b>Сообщение:</b> ${this.message.value}`;
+      axios.post(URI_API, {
+        chat_id: CHAT_ID,
+        parse_mode: 'html',
+        text: message
+      })
+      .then(res => {
+        document.getElementById('formStatus').textContent = 'Спасибо! Ваша заявка отправлена в Telegram.';
+        this.reset();
+        this.classList.remove('was-validated');
+      })
+      .catch(err => {
+        document.getElementById('formStatus').textContent = 'Ошибка отправки. Попробуйте позже.';
+      });
+    });
+  }
+}); 
