@@ -312,7 +312,7 @@ function updateThemeColorMeta(theme) {
   if (meta) {
     meta.setAttribute('content', color);
   }
-  // Если есть второй meta с media, тоже обновим для надёжности
+  
   let metaDark = document.querySelector('meta[name="theme-color"][media]');
   if (metaDark) {
     metaDark.setAttribute('content', '#1D1D1F');
@@ -320,8 +320,8 @@ function updateThemeColorMeta(theme) {
 }
 
 // === Отправка формы в Telegram ===
-const TOKEN = '7561238716:AAFa5_Ub7apYpni03jRCna2i7W9PXEVJfco'; // <-- сюда свой токен
-const CHAT_ID = '-1002601924575';           // <-- сюда свой chat_id
+const TOKEN = process.env.TG_TOKEN;
+const CHAT_ID = process.env.TG_CHAT_ID;
 const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 
 document.addEventListener('DOMContentLoaded', function() {
