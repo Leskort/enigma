@@ -93,6 +93,62 @@
       <p>В работе ценю минимализм, внимание к деталям и чистый код. Открыт к новым проектам и интересным задачам.</p>
     </div>
   </section>
+  <!-- === Портфолио === -->
+  <section class="portfolio" id="portfolio">
+    <div class="reveal-on-scroll portfolio-header">
+      <svg class="portfolio-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#portfolioIconGradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <defs>
+          <linearGradient id="portfolioIconGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#4FC3F7"/>
+            <stop offset="100%" stop-color="#0071E3"/>
+          </linearGradient>
+        </defs>
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+      </svg>
+      <h2 style="margin: 0;">Портфолио</h2>
+      <div class="portfolio-underline"></div>
+    </div>
+    <p style="text-align:center; max-width: 550px; margin: 16px auto 40px auto; opacity: 0.8; font-size: 1.05rem; line-height: 1.5;" class="reveal-on-scroll">
+      Это не просто галерея работ. Это живая история сотрудничества, где каждый проект — это доверие клиента и результат, которым я горжусь.
+    </p>
+    <div class="portfolio-list">
+      <div class="portfolio-item reveal-on-scroll" 
+           data-title="Сайт-визитка для BMX-райдера" 
+           data-img="images/portfolio/slava-bmx-extreme.jpg"
+           data-description="<b>Задача:</b> Создать стильный и динамичный сайт-визитку для профессионального BMX-райдера, который бы отражал его личность и достижения.<br><br><b>Решение:</b> Разработан эффектный лендинг с параллакс-эффектами и плавной анимацией. Сайт рассказывает историю райдера, демонстрирует его достижения, спонсоров и мерч. Особое внимание было уделено визуальной части и адаптивности для мобильных устройств.<br><br><b>Фишка:</b> Реализована плавная анимация появления элементов при скролле, что создает ощущение динамики и вовлеченности.<br><br><b>Технологии:</b> HTML5, CSS3 (Flexbox, Grid), JavaScript, GSAP, Netlify."
+           data-link="https://slavabmx.netlify.app/">
+        <img class="portfolio-img" src="images/portfolio/slava-bmx-extreme.jpg" alt="Сайт-визитка для BMX-райдера">
+        <div class="portfolio-title">Сайт-визитка "Slava BMX"</div>
+      </div>
+      <div class="portfolio-item reveal-on-scroll" 
+           data-title="Сайт-визитка для музыканта" 
+           data-img="images/portfolio/leskort.png"
+           data-description="<b>Задача:</b> Создать ультра-минималистичный сайт-визитку для музыканта, который бы быстро направлял аудиторию на ключевые площадки.<br><br><b>Решение:</b> Разработана стильная страница-агрегатор ссылок (link-in-bio) с тёмной темой и неоновыми акцентами. Сайт служит единой точкой входа для фанатов, ведущей на Instagram, TikTok и SoundCloud.<br><br><b>Фишка:</b> Скорость загрузки и простота. Ничего лишнего, только самые важные ссылки, что идеально для мобильных пользователей.<br><br><b>Технологии:</b> HTML5, CSS3, JavaScript."
+           data-link="https://bugalteria.netlify.app/">
+        <img class="portfolio-img" src="images/portfolio/leskort.png" alt="Сайт-визитка для музыканта" style="object-fit: contain; background: #111; padding: 2rem;">
+        <div class="portfolio-title">Сайт-визитка "leskort"</div>
+      </div>
+      <div class="portfolio-item reveal-on-scroll" 
+           data-title="Магазин доставки здорового питания" 
+           data-img="images/portfolio/logo4.png"
+           data-description="<b>Задача:</b> Разработать e-commerce платформу, которая трансформировалась из обычного интернет-магазина в сервис по доставке здорового питания.<br><br><b>Решение:</b> Создан гибкий сайт с каталогом, корзиной и системой заказов. Архитектура проекта позволила легко адаптировать его под новую бизнес-модель, сфокусированную на доставке.<br><br><b>Ключевая особенность:</b> Этот кейс показывает мою способность создавать не статичные сайты, а развивающиеся проекты, которые могут меняться вместе с целями бизнеса.<br><br><b>Технологии:</b> HTML5, CSS3, JavaScript, PHP."
+           data-link="http://r2918234.beget.tech/">
+        <img class="portfolio-img" src="images/portfolio/logo4.png" alt="Магазин доставки здорового питания" style="object-fit: contain; background: #f8f8f8; padding: 2rem;">
+        <div class="portfolio-title">Доставка здорового питания</div>
+      </div>
+    </div>
+    <!-- Модальное окно для портфолио -->
+    <div class="modal" id="portfolioModal">
+      <div class="modal-content">
+        <button class="modal-close" id="modalClose" aria-label="Закрыть">×</button>
+        <img id="modalImg" src="" alt="" style="width:100%; border-radius:12px; margin-bottom:24px;">
+        <div id="modalTitle" style="font-size:1.3rem; font-weight:500;"></div>
+        <div id="modalDescription" style="margin-top: 16px; opacity: 0.85; line-height: 1.6; font-size: 1rem;"></div>
+        <a href="#" id="modalLink" class="modal-link" target="_blank" rel="noopener">Посмотреть сайт &rarr;</a>
+      </div>
+    </div>
+  </section>
   <!-- Преимущества -->
   <section class="benefits" id="benefits" style="max-width:900px;margin:0 auto 48px auto;padding:0 24px;">
     <div class="benefits-header" style="text-align:center; margin-bottom:32px;">
@@ -223,62 +279,6 @@
     </div>
   </section>
 
-  <!-- === Портфолио === -->
-  <section class="portfolio" id="portfolio">
-    <div class="reveal-on-scroll portfolio-header">
-      <svg class="portfolio-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#portfolioIconGradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <defs>
-          <linearGradient id="portfolioIconGradient" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#4FC3F7"/>
-            <stop offset="100%" stop-color="#0071E3"/>
-          </linearGradient>
-        </defs>
-        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-      </svg>
-      <h2 style="margin: 0;">Портфолио</h2>
-      <div class="portfolio-underline"></div>
-    </div>
-    <p style="text-align:center; max-width: 550px; margin: 16px auto 40px auto; opacity: 0.8; font-size: 1.05rem; line-height: 1.5;" class="reveal-on-scroll">
-      Это не просто галерея работ. Это живая история сотрудничества, где каждый проект — это доверие клиента и результат, которым я горжусь.
-    </p>
-    <div class="portfolio-list">
-      <div class="portfolio-item reveal-on-scroll" 
-           data-title="Сайт-визитка для BMX-райдера" 
-           data-img="images/portfolio/slava-bmx-extreme.jpg"
-           data-description="<b>Задача:</b> Создать стильный и динамичный сайт-визитку для профессионального BMX-райдера, который бы отражал его личность и достижения.<br><br><b>Решение:</b> Разработан эффектный лендинг с параллакс-эффектами и плавной анимацией. Сайт рассказывает историю райдера, демонстрирует его достижения, спонсоров и мерч. Особое внимание было уделено визуальной части и адаптивности для мобильных устройств.<br><br><b>Фишка:</b> Реализована плавная анимация появления элементов при скролле, что создает ощущение динамики и вовлеченности.<br><br><b>Технологии:</b> HTML5, CSS3 (Flexbox, Grid), JavaScript, GSAP, Netlify."
-           data-link="https://slavabmx.netlify.app/">
-        <img class="portfolio-img" src="images/portfolio/slava-bmx-extreme.jpg" alt="Сайт-визитка для BMX-райдера">
-        <div class="portfolio-title">Сайт-визитка "Slava BMX"</div>
-      </div>
-      <div class="portfolio-item reveal-on-scroll" 
-           data-title="Сайт-визитка для музыканта" 
-           data-img="images/portfolio/leskort.png"
-           data-description="<b>Задача:</b> Создать ультра-минималистичный сайт-визитку для музыканта, который бы быстро направлял аудиторию на ключевые площадки.<br><br><b>Решение:</b> Разработана стильная страница-агрегатор ссылок (link-in-bio) с тёмной темой и неоновыми акцентами. Сайт служит единой точкой входа для фанатов, ведущей на Instagram, TikTok и SoundCloud.<br><br><b>Фишка:</b> Скорость загрузки и простота. Ничего лишнего, только самые важные ссылки, что идеально для мобильных пользователей.<br><br><b>Технологии:</b> HTML5, CSS3, JavaScript."
-           data-link="https://bugalteria.netlify.app/">
-        <img class="portfolio-img" src="images/portfolio/leskort.png" alt="Сайт-визитка для музыканта" style="object-fit: contain; background: #111; padding: 2rem;">
-        <div class="portfolio-title">Сайт-визитка "leskort"</div>
-      </div>
-      <div class="portfolio-item reveal-on-scroll" 
-           data-title="Магазин доставки здорового питания" 
-           data-img="images/portfolio/logo4.png"
-           data-description="<b>Задача:</b> Разработать e-commerce платформу, которая трансформировалась из обычного интернет-магазина в сервис по доставке здорового питания.<br><br><b>Решение:</b> Создан гибкий сайт с каталогом, корзиной и системой заказов. Архитектура проекта позволила легко адаптировать его под новую бизнес-модель, сфокусированную на доставке.<br><br><b>Ключевая особенность:</b> Этот кейс показывает мою способность создавать не статичные сайты, а развивающиеся проекты, которые могут меняться вместе с целями бизнеса.<br><br><b>Технологии:</b> HTML5, CSS3, JavaScript, PHP."
-           data-link="http://r2918234.beget.tech/">
-        <img class="portfolio-img" src="images/portfolio/logo4.png" alt="Магазин доставки здорового питания" style="object-fit: contain; background: #f8f8f8; padding: 2rem;">
-        <div class="portfolio-title">Доставка здорового питания</div>
-      </div>
-    </div>
-    <!-- Модальное окно для портфолио -->
-    <div class="modal" id="portfolioModal">
-      <div class="modal-content">
-        <button class="modal-close" id="modalClose" aria-label="Закрыть">×</button>
-        <img id="modalImg" src="" alt="" style="width:100%; border-radius:12px; margin-bottom:24px;">
-        <div id="modalTitle" style="font-size:1.3rem; font-weight:500;"></div>
-        <div id="modalDescription" style="margin-top: 16px; opacity: 0.85; line-height: 1.6; font-size: 1rem;"></div>
-        <a href="#" id="modalLink" class="modal-link" target="_blank" rel="noopener">Посмотреть сайт &rarr;</a>
-      </div>
-    </div>
-  </section>
   <!-- === Информация о хостинге === -->
   <section id="hosting-info" class="hosting-info reveal-on-scroll" style="max-width: 800px; margin: 56px auto; padding: 32px; background: var(--color-card-hover); border: 1px solid var(--color-border); border-radius: 16px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px;">
     <div class="hosting-info-icon" style="color: var(--color-accent);">
