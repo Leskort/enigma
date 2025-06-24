@@ -320,12 +320,8 @@ function updateThemeColorMeta(theme) {
 }
 
 // === Отправка формы в Telegram ===
-const TOKEN = process.env.TG_TOKEN;
-const CHAT_ID = process.env.TG_CHAT_ID;
-const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
-
 document.addEventListener('DOMContentLoaded', function() {
-  const form = document.querySelector('.contacts-form');
+  const form = document.getElementById('tg');
   if (form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
@@ -335,21 +331,28 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
 
-      let message = '<b>Заявка с сайта</b>\n';
-      message += `<b>Имя:</b> ${this.name.value}\n`;
-      message += `<b>Email:</b> ${this.email.value}\n`;
-      message += `<b>Сообщение:</b> ${this.message.value}`;
-      axios.post(URI_API, {
-        chat_id: CHAT_ID,
-        parse_mode: 'html',
-        text: message
+      const data = {
+        name: this.name.value,
+        email: this.email.value,
+        message: this.message.value
+      };
+
+      fetch('/.netlify/functions/send-tg', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
       })
+      .then(res => res.json())
       .then(res => {
-        document.getElementById('formStatus').textContent = 'Спасибо! Ваша заявка отправлена в Telegram.';
-        this.reset();
-        this.classList.remove('was-validated');
+        if (res.success) {
+          document.getElementById('formStatus').textContent = 'Спасибо! Ваша заявка отправлена в Telegram.';
+          this.reset();
+          this.classList.remove('was-validated');
+        } else {
+          document.getElementById('formStatus').textContent = 'Ошибка отправки. Попробуйте позже.';
+        }
       })
-      .catch(err => {
+      .catch(() => {
         document.getElementById('formStatus').textContent = 'Ошибка отправки. Попробуйте позже.';
       });
     });
