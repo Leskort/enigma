@@ -58,11 +58,20 @@ header {
   padding: 0 24px;
 }
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-weight: 700;
   font-size: 1.5rem;
   letter-spacing: 0.04em;
   color: var(--color-accent);
   user-select: none;
+}
+.logo-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--color-accent);
 }
 nav {
   display: flex;
@@ -725,27 +734,64 @@ body.menu-open .burger { display: none !important; }
 @media (max-width: 700px) {
   .benefits ul { grid-template-columns: 1fr; }
 }
-.testimonials {
-  max-width: 900px;
-  margin: 56px auto 0 auto;
-  padding: 0 24px;
+section.testimonials {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 0;
 }
 .testimonials h2 {
   text-align: center;
-  margin-bottom: 32px;
+  margin: 40px 0 32px 0;
 }
-.testimonials > div {
-  display: grid;
-  gap: 24px;
-  grid-template-columns: 1fr 1fr;
+.testimonials-marquee-outer {
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  height: auto;
+  padding: 0;
 }
-.testimonials > div > div {
+.testimonials-marquee-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  will-change: transform;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  gap: 0;
+}
+.testimonial {
+  flex: 0 0 110px;
+  min-width: 110px;
+  max-width: 110px;
+  margin: 0 8px;
+  box-sizing: border-box;
+  padding: 18px 10px;
   background: var(--color-card-hover);
   border-radius: 12px;
-  padding: 24px;
+  transition: box-shadow 0.3s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
-@media (max-width: 700px) {
-  .testimonials > div { grid-template-columns: 1fr; }
+.testimonial-author {
+  font-size: 1rem;
+}
+.testimonial-text {
+  font-size: 0.92rem;
+}
+@media (max-width: 900px) {
+  .testimonial {
+    flex: 0 0 70vw;
+    min-width: 70vw;
+    max-width: 70vw;
+    font-size: 0.98rem;
+    padding: 18px 8px;
+  }
 }
 .services table {
   width: 100%;
@@ -1603,4 +1649,173 @@ body.menu-open .burger { display: none !important; }
     border-radius: 10 !important;
     
   }
-} 
+}
+
+/* Стили для нового блока отзывов */
+.simple-testimonials {
+  max-width: 1200px;
+  margin: 64px auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.simple-testimonials h2 {
+  margin-bottom: 20px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.testimonial-card {
+  background: var(--color-card-hover);
+  border-radius: var(--radius-card);
+  box-shadow: var(--color-shadow);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.testimonial-quote {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  font-style: italic;
+  color: var(--color-fg);
+  opacity: 0.95;
+}
+
+.testimonial-author {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-accent);
+  opacity: 0.9;
+  margin-top: auto; /* Прижимает автора к низу карточки */
+}
+
+@media (max-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  .testimonial-card {
+    padding: 20px;
+  }
+  .testimonial-quote {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .simple-testimonials {
+    margin: 40px auto;
+    padding: 0 16px;
+  }
+  .simple-testimonials h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+  .testimonial-card {
+    padding: 18px;
+  }
+  .testimonial-quote {
+    font-size: 1rem;
+  }
+  .testimonial-author {
+    font-size: 0.9rem;
+  }
+}
+
+/* Стили для заголовка отзывов с иконкой */
+.testimonials-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.testimonials-icon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 480px) {
+  .testimonials-heading {
+    font-size: 1.8rem;
+    gap: 6px;
+  }
+  .testimonials-icon {
+    width: 26px;
+    height: 26px;
+    margin-bottom: 6px;
+  }
+}
+
+/* Стили для заголовка услуг с иконкой */
+.services-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Расстояние между иконкой и текстом */
+  margin-bottom: 20px; /* Отступ снизу для заголовка */
+}
+
+.services-icon {
+  color: var(--color-accent); /* Цвет иконки как акцентный цвет */
+  flex-shrink: 0; /* Чтобы иконка не сжималась */
+  margin-bottom: 8px; /* Отступ снизу иконки от текста */
+}
+
+@media (max-width: 480px) {
+  .services-heading {
+    font-size: 1.8rem;
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+  .services-icon {
+    width: 26px;
+    height: 26px;
+    margin-bottom: 6px;
+  }
+}
+
+/* Стили для заголовка контактов с иконкой */
+.contacts-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Расстояние между иконкой и текстом */
+  margin-bottom: 20px; /* Отступ снизу для заголовка */
+}
+
+.contacts-icon {
+  color: var(--color-accent); /* Цвет иконки как акцентный цвет */
+  flex-shrink: 0; /* Чтобы иконка не сжималась */
+  margin-bottom: 8px; /* Отступ снизу иконки от текста */
+}
+
+@media (max-width: 480px) {
+  .contacts-heading {
+    font-size: 1.8rem;
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+  .contacts-icon {
+    width: 26px;
+    height: 26px;
+    margin-bottom: 6px;
+  }
+}

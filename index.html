@@ -12,15 +12,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="/favicon.ico">
+  <link rel="stylesheet" href="style.css">  
+  <link rel="icon" type="image/png" href="images/icon-live.png">
   <!-- Подключение Bootstrap CSS -->
 </head>
 <body>
   <!-- === Header === -->
   <header>
     <div class="header-inner">
-      <a href="#hero" class="logo">TRON</a>
+      <a href="#hero" class="logo">
+        <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2" ry="2"></rect><path d="M7 7h10v10H7z"></path><line x1="12" y1="2" x2="12" y2="7"></line><line x1="12" y1="17" x2="12" y2="22"></line><line x1="2" y1="12" x2="7" y2="12"></line><line x1="17" y1="12" x2="22" y2="12"></line></svg>
+        TRON
+      </a>
       <nav class="desktop-nav" aria-hidden="false" tabindex="0">
         <a href="#hero">Главная</a>
         <a href="#about">Обо мне</a>
@@ -253,7 +256,10 @@
   </section>
   <!-- === Услуги === -->
   <section class="services" id="services">
-    <h2 style="text-align:center; margin-bottom:40px;" class="reveal-on-scroll">Услуги</h2>
+    <h2 class="reveal-on-scroll services-heading">
+      <svg class="services-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.75 9h18.5L12 21 2.75 9zM12 2L6 9h12L12 2z"></path></svg>
+      Услуги
+    </h2>
     <div class="services-list">
       <div class="service-card reveal-on-scroll">
         <div class="service-icon">
@@ -313,23 +319,46 @@
     </details>
   </section>
 
-  <!-- Отзывы -->
-  <section class="testimonials" id="testimonials" style="max-width:900px;margin:56px auto 0 auto;padding:0 24px;">
-    <h2 style="text-align:center;margin-bottom:32px;" class="reveal-on-scroll">Отзывы клиентов</h2>
-    <div style="display:grid;gap:24px;grid-template-columns:1fr 1fr;">
-      <div class="reveal-on-scroll" style="background:var(--color-card-hover);border-radius:12px;padding:24px;">
-        <div style="font-size:1.1rem;font-weight:500;margin-bottom:8px;">Анна, стартапер</div>
-        <div style="font-size:1rem;opacity:0.85;">«Алексей сделал MVP за 2 дня! Всё понятно, быстро, результат превзошёл ожидания.»</div>
+  <!-- Отзывы (новый простой блок) -->
+  <section class="simple-testimonials" id="simple-testimonials">
+    <h2 class="reveal-on-scroll testimonials-heading">
+      <svg class="testimonials-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+      Что говорят клиенты
+    </h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal-on-scroll">
+        <p class="testimonial-quote">«Очень доволен скоростью и качеством. Уже через 3 дня запустили новый сайт!»</p>
+        <p class="testimonial-author">Игорь, владелец бизнеса</p>
       </div>
-      <div class="reveal-on-scroll" style="background:var(--color-card-hover);border-radius:12px;padding:24px;">
-        <div style="font-size:1.1rem;font-weight:500;margin-bottom:8px;">Игорь, владелец бизнеса</div>
-        <div style="font-size:1rem;opacity:0.85;">«Очень доволен скоростью и качеством. Уже через 3 дня запустили новый сайт!»</div>
+      <div class="testimonial-card reveal-on-scroll">
+        <p class="testimonial-quote">«Потрясающий подход к деталям и дизайну. Сайт стал визитной карточкой компании!»</p>
+        <p class="testimonial-author">Мария, маркетолог</p>
+      </div>
+      <div class="testimonial-card reveal-on-scroll">
+        <p class="testimonial-quote">«Быстро, четко, профессионально. Рекомендую всем, кто ценит результат!»</p>
+        <p class="testimonial-author">Владимир, предприниматель</p>
+      </div>
+      <div class="testimonial-card reveal-on-scroll">
+        <p class="testimonial-quote">«Очень понравился сервис и поддержка после запуска. Спасибо!»</p>
+        <p class="testimonial-author">Екатерина, стартапер</p>
+      </div>
+      <div class="testimonial-card reveal-on-scroll">
+        <p class="testimonial-quote">«Современный подход и внимание к деталям. Сайт стал ярким примером минимализма!»</p>
+        <p class="testimonial-author">Сергей, дизайнер</p>
+      </div>
+      <div class="testimonial-card reveal-on-scroll">
+        <p class="testimonial-quote">«Работа выполнена в срок, коммуникация на высоте. Буду обращаться ещё!»</p>
+        <p class="testimonial-author">Ольга, руководитель проекта</p>
       </div>
     </div>
   </section>
+
   <!-- === Контакты === -->
   <section class="contacts" id="contacts">
-    <h2 style="text-align:center; margin-bottom:40px;" class="reveal-on-scroll">Контакты</h2>
+    <h2 class="reveal-on-scroll contacts-heading">
+      <svg class="contacts-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      Контакты
+    </h2>
     <form  id="tg" class="contacts-form reveal-on-scroll" autocomplete="off">
       <div class="input-group">
         <label for="name">Имя</label>
