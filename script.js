@@ -88,6 +88,60 @@ function closeModal() {
     scrollToTopBtn.classList.remove('hidden-by-modal');
   }
 }
+// === Модальное окно для описания технологий ===
+const techModal = document.getElementById('techModal');
+const techModalTitle = document.getElementById('techModalTitle');
+const techModalDescription = document.getElementById('techModalDescription');
+const techModalClose = document.getElementById('techModalClose');
+const techModalIcon = document.getElementById('techModalIcon');
+
+document.querySelectorAll('.tech-stack-marquee .slide').forEach(slide => {
+  slide.addEventListener('click', () => {
+    techModalTitle.textContent = slide.dataset.title;
+    techModalDescription.textContent = slide.dataset.description;
+
+    const slideImg = slide.querySelector('img');
+    if (slideImg) {
+      techModalIcon.src = slideImg.src;
+      techModalIcon.alt = slideImg.alt;
+    }
+
+    // Новое: подставляем ссылку на официальный сайт
+    const techModalIconLink = document.getElementById('techModalIconLink');
+    if (techModalIconLink) {
+      techModalIconLink.href = slide.dataset.link || '#';
+      techModalIconLink.target = '_blank';
+      techModalIconLink.rel = 'noopener';
+    }
+
+    techModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (scrollToTopBtn) {
+      scrollToTopBtn.classList.add('hidden-by-modal');
+    }
+  });
+});
+
+if (techModalClose) {
+  techModalClose.onclick = closeTechModal;
+}
+
+if (techModal) {
+  techModal.onclick = function(e) {
+    if (e.target === techModal) closeTechModal();
+  };
+}
+
+function closeTechModal() {
+  if (techModal) {
+    techModal.classList.remove('active');
+  }
+  document.body.style.overflow = '';
+  if (scrollToTopBtn) {
+    scrollToTopBtn.classList.remove('hidden-by-modal');
+  }
+}
+
 // === Форма контактов (валидация и имитация отправки) ===
 // const form = document.querySelector('.contacts-form');
 // const formStatus = document.getElementById('formStatus');
@@ -149,6 +203,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.1 });
   revealElements.forEach(el => revealObserver.observe(el));
+
+  // --- Анимация технологического стека (бегущая строка) ---
+  const techStackMarquee = document.querySelector('.tech-stack-marquee');
+  if (techStackMarquee) {
+    const marqueeObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-marquee');
+        }
+      });
+    }, { threshold: 0.2 }); // Запуск анимации, когда 20% элемента видно
+    marqueeObserver.observe(techStackMarquee);
+  }
 
   // --- Анимация "Битвы" ---
   const battleSection = document.querySelector('.code-vs-constructor');

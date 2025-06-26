@@ -366,7 +366,7 @@ nav a:hover, nav a:focus {
   grid-template-columns: 1fr;
   gap: 48px;
   align-items: center;
-  padding: 64px 24px;
+  padding: 80px 24px;
 }
 .about-text {
   font-size: 1.1rem;
@@ -389,12 +389,51 @@ nav a:hover, nav a:focus {
   width: 100%;
   height: auto;
 }
+.about-tech-block {
+  margin-top: 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.about-tech-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #0071E3, #4FC3F7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 8px;
+}
+.about-tech-hint {
+  font-size: 1rem;
+  color: #333;
+  opacity: 0.85;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+@media (max-width: 900px) {
+  .about-tech-block {
+    margin-top: 24px;
+    gap: 8px;
+  }
+  .about-tech-title {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+  }
+  .about-tech-hint {
+    font-size: 0.98rem;
+    margin-top: 8px;
+  }
+}
 
 /* === Услуги === */
 .services {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 64px 24px;
+  padding: 80px 24px;
 }
 .services-list {
   display: flex;
@@ -438,7 +477,7 @@ nav a:hover, nav a:focus {
 .portfolio {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 64px 24px;
+  padding: 80px 24px;
 }
 .portfolio-list {
   display: grid;
@@ -489,10 +528,10 @@ nav a:hover, nav a:focus {
   background: var(--color-bg);
   border-radius: var(--radius-card);
   box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-  max-width: 90vw;
+  max-width: 700px;
   max-height: 80vh;
   overflow: auto;
-  padding: 32px;
+  padding: 32px 32px 24px 32px;
   position: relative;
   animation: modalIn 0.3s cubic-bezier(.4,0,.2,1);
 }
@@ -513,11 +552,22 @@ nav a:hover, nav a:focus {
 }
 .modal-close:hover { opacity: 1; }
 
+.portfolio-img, #modalImg {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
 /* === Контакты === */
 .contacts {
   max-width: 600px;
   margin: 0 auto;
-  padding: 64px 24px;
+  padding: 80px 24px;
 }
 .contacts-form {
   display: flex;
@@ -1035,6 +1085,7 @@ section.testimonials {
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   will-change: box-shadow, transform;
   backface-visibility: hidden;
+  cursor: pointer;
 }
 .column h3 {
   font-size: 1.25rem;
@@ -1352,9 +1403,6 @@ section.testimonials {
   .battle-active .column.constructor {
     animation: walk-away 1.5s 23s cubic-bezier(0.5, 0, 0.75, 0) forwards;
   }
-  .battle-active .column.my-work {
-    transition: transform 1.2s cubic-bezier(.4,0,.2,1), box-shadow 0.6s;
-  }
   .battle-active.battle-won .comparison-container {
     display: flex !important;
     justify-content: center !important;
@@ -1646,7 +1694,7 @@ section.testimonials {
   .comparison-container,
   .column,
   .column.my-work {
-    border-radius: 10 !important;
+    border-radius: 10px !important;
     
   }
 }
@@ -1817,5 +1865,229 @@ section.testimonials {
     width: 26px;
     height: 26px;
     margin-bottom: 6px;
+  }
+}
+
+/* Общие стили для заголовков секций */
+.section-heading {
+  text-align: center;
+  font-size: 2rem; /* Увеличьте по необходимости, чтобы соответствовать другим H2 */
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-top: 0;
+  margin-bottom: 20px; /* Отступ от нижнего подчеркивания */
+}
+
+.section-underline {
+  width: 80px; height: 4px;
+  background: linear-gradient(90deg, #4FC3F7, #0071E3);
+  border-radius: 2px;
+  margin: 18px auto 0 auto;
+}
+
+/* === Стили для бегущей строки технологий === */
+.tech-stack-section {
+  padding: 0px 0;
+  text-align: center;
+}
+
+.tech-stack-intro-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #0071E3, #4FC3F7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  margin-bottom: 0; /* Удаляем отступ от родителя */
+}
+
+.tech-stack-intro-text.revealed {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.tech-stack-arrow {
+  display: block;
+  width: 44px; /* Увеличиваем размер стрелки */
+  height: 44px; /* Увеличиваем размер стрелки */
+  margin: 0 auto 10px auto; /* Скорректированный отступ после стрелки */
+  color: var(--color-accent);
+  animation: bounce 1.5s infinite ease-in-out;
+  filter: drop-shadow(0 0 5px rgba(0, 113, 227, 0.4)); /* Добавляем мягкую тень */
+}
+
+.tech-click-hint {
+  font-size: 1.1rem; /* Увеличиваем шрифт */
+  opacity: 0.9; /* Делаем менее прозрачной */
+  font-weight: 500; /* Делаем жирнее */
+  margin-top: 10px; /* Уменьшаем отступ над подсказкой для лучшего разделения */
+  margin-bottom: 40px; /* Уменьшенный отступ перед бегущей строкой */
+}
+
+.tech-click-hint p {
+  margin: 0;
+}
+
+.tech-stack-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  /* Removed margin-bottom */
+}
+
+.tech-stack-marquee::before,
+.tech-stack-marquee::after {
+  display: none;
+}
+
+[data-theme="dark"] .tech-stack-marquee::before,
+[data-theme="dark"] .tech-stack-marquee::after {
+  display: none;
+}
+
+.tech-stack-marquee h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.slider {
+  width: 100%;
+  white-space: nowrap;
+  position: relative;
+  height: auto;
+  margin: auto;
+  background: none;
+  box-shadow: none;
+}
+
+.slider .slide-track {
+  animation: scroll 80s linear infinite;
+  display: flex;
+  width: calc(130px * 30);
+  will-change: transform;
+}
+
+.tech-stack-marquee.animate-marquee .slide-track {
+  animation: scroll 80s linear infinite;
+}
+
+.slider .slide {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  margin: 0 15px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-divider);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  transition: filter 0.3s, opacity 0.3s, transform 0.3s, box-shadow 0.3s;
+  transform: translateY(0);
+  will-change: transform;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.slider .slide img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0;
+}
+
+.slider .slide:hover, .slider .slide:active {
+  filter: none;
+  opacity: 1;
+  transform: translateY(-5px) scale(1.05);
+  /* Усиленная тень с цветным свечением для подсветки */
+  box-shadow: 0 10px 30px rgba(0,113,227,0.2), 0 0 0 rgba(0,0,0,0.12); /* Цветная тень + обычная тень */
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-130px * 15)); }
+}
+
+@media (max-width: 768px) {
+  .tech-stack-marquee {
+    padding: 20px 0;
+    margin: 60px 0;
+  }
+  .tech-stack-marquee::before,
+  .tech-stack-marquee::after {
+    display: none;
+  }
+  .slider {
+    margin-left: -10px;
+  }
+  .slider .slide-track {
+    animation: scroll 80s linear infinite;
+    display: flex;
+    width: calc(110px * 30);
+    will-change: transform;
+  }
+  .slider .slide {
+    width: 90px;
+    height: 90px;
+    margin: 0 10px;
+    transform: translateY(0);
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+    will-change: transform;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .slider .slide img {
+    display: block;
+    margin: 0;
+  }
+  .slider .slide:hover, .slider .slide:active {
+    filter: none;
+    opacity: 1;
+    transform: translateY(-5px) scale(1.05);
+    /* Усиленная тень с цветным свечением для подсветки на мобильных */
+    box-shadow: 0 8px 24px rgba(0,113,227,0.15); 
+  }
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-110px * 15)); }
+  }
+  .tech-stack-marquee.animate-marquee .slide-track {
+    animation: scroll 80s linear infinite;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-stack-marquee h2 {
+    font-size: 1.8rem;
+  }
+  .section-heading {
+    font-size: 1.8rem;
+  }
+}
+
+/* === Модальное окно для описания технологий === */
+#techModal .modal-content {
+  max-width: 600px; /* Установите максимальную ширину для модального окна технологий */
+}
+
+@media (min-width: 900px) {
+  .tech-stack-intro-text {
+    margin-bottom: 18px !important;
+  }
+  .tech-stack-arrow {
+    margin-bottom: 12px !important;
+  }
+  .tech-click-hint {
+    margin-top: 16px !important;
+    margin-bottom: 48px !important;
   }
 }
