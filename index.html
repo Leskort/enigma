@@ -20,9 +20,27 @@
   <!-- === Header === -->
   <header>
     <div class="header-inner">
-      <a href="#hero" class="logo">
-        <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2" ry="2"></rect><path d="M7 7h10v10H7z"></path><line x1="12" y1="2" x2="12" y2="7"></line><line x1="12" y1="17" x2="12" y2="22"></line><line x1="2" y1="12" x2="7" y2="12"></line><line x1="17" y1="12" x2="22" y2="12"></line></svg>
-        TRON
+      <a href="#hero" class="logo" style="position:relative;">
+        <span class="logo-glow"></span>
+        <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#tron-logo-gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <defs>
+            <linearGradient id="tron-logo-gradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#00cfff">
+                <animate attributeName="stop-color" values="#00cfff;#0071E3;#00cfff" dur="2.5s" repeatCount="indefinite"/>
+              </stop>
+              <stop offset="100%" stop-color="#0071E3">
+                <animate attributeName="stop-color" values="#0071E3;#00cfff;#0071E3" dur="2.5s" repeatCount="indefinite"/>
+              </stop>
+            </linearGradient>
+          </defs>
+          <rect x="2" y="2" width="20" height="20" rx="2" ry="2" fill="none" stroke="url(#tron-logo-gradient)"/>
+          <path d="M7 7h10v10H7z" fill="none" stroke="url(#tron-logo-gradient)"/>
+          <line x1="12" y1="2" x2="12" y2="7" stroke="url(#tron-logo-gradient)"/>
+          <line x1="12" y1="17" x2="12" y2="22" stroke="url(#tron-logo-gradient)"/>
+          <line x1="2" y1="12" x2="7" y2="12" stroke="url(#tron-logo-gradient)"/>
+          <line x1="17" y1="12" x2="22" y2="12" stroke="url(#tron-logo-gradient)"/>
+        </svg>
+        <span class="logo-text-tron">TRON</span>
       </a>
       <nav class="desktop-nav" aria-hidden="false" tabindex="0">
         <a href="#hero">Главная</a>
@@ -96,12 +114,14 @@
       <p>В работе ценю минимализм, внимание к деталям и чистый код. Открыт к новым проектам и интересным задачам.</p>
     </div>
   </section>
+  <!-- === Технологии === -->
   <section class="tech-stack-section" id="tech-stack">
     <div class="tech-stack-intro-text reveal-on-scroll">
       Посмотрите, на чем я создаю свои проекты!
     </div>
+    <svg class="tech-stack-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
     <!-- === Технологии === -->
-    <section class="tech-stack-marquee">
+    <div class="tech-stack-marquee">
       <div class="slider">
         <div class="slide-track">
           <div class="slide" data-title="HTML5" data-description="HTML5 – это язык разметки, используемый для структурирования и представления контента во Всемирной паутине." data-link="https://html.spec.whatwg.org/">
@@ -148,6 +168,9 @@
           </div>
           <div class="slide" data-title="Webpack" data-description="Webpack – это статический сборщик модулей для современных JavaScript-приложений. Вы можете нажать на иконку, чтобы узнать больше." data-link="https://webpack.js.org/">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webpack/webpack-original.svg" alt="Webpack" />
+          </div>
+          <div class="slide" data-title="TypeScript" data-description="TypeScript – это надстройка над JavaScript, добавляющая строгую типизацию и современные возможности для разработки масштабируемых приложений. Вы можете нажать на иконку, чтобы узнать больше." data-link="https://www.typescriptlang.org/">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" />
           </div>
           <!-- Дубликаты для бесконечной прокрутки -->
           <div class="slide" data-title="HTML5" data-description="HTML5 – это язык разметки, используемый для структурирования и представления контента во Всемирной паутине." data-link="https://html.spec.whatwg.org/">
@@ -197,9 +220,11 @@
           </div>
         </div>
       </div>
-    </section>
+    </div>
     <div class="tech-click-hint reveal-on-scroll">
-      <p>Нажмите на иконку, чтобы узнать подробнее!</p>
+      <p>
+        Нажмите на иконку, чтобы узнать подробнее!
+      </p>
     </div>
   </section>
 
@@ -323,6 +348,11 @@
   <!-- === Ручная работа vs. Конструктор === -->
   <section class="code-vs-constructor reveal-on-scroll" id="code-vs-constructor">
     <div class="arena-header">
+      <svg class="code-vs-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin:0 auto 12px auto;">
+        <polyline points="16 18 8 24 16 30"/>
+        <polyline points="32 18 40 24 32 30"/>
+        <line x1="28" y1="16" x2="20" y2="32"/>
+      </svg>
       <h2 class="gradient-title">Конструктор vs. Код</h2>
       <p class="subtitle">Почему индивидуальная разработка — это инвестиция, а не затраты</p>
     </div>
@@ -392,7 +422,7 @@
           <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="10" stroke="currentColor" stroke-width="2"/><path d="M16 6v20M6 16h20" stroke="currentColor" stroke-width="2"/></svg>
         </div>
         <div class="service-title">UI/UX Дизайн</div>
-        <div class="service-desc">Минималистичный, интуитивный интерфейс. Дизайн, вдохновленный Apple. Быстрые прототипы — 1-3 дня.</div>
+        <div class="service-desc">Минималистичный, интуитивный интерфейс. Современный дизайн мирового уровня. Быстрые прототипы. </div>
       </div>
       <div class="service-card reveal-on-scroll">
         <div class="service-icon">
@@ -478,6 +508,13 @@
       <svg class="contacts-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
       Контакты
     </h2>
+    <!-- Мессенджеры -->
+    <div class="messengers reveal-on-scroll" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+      <span style="margin-right:8px;">Связаться в мессенджерах:</span>
+      <a href="https://t.me/pongdet" target="_blank" class="messenger-btn telegram" aria-label="Telegram" style="display:inline-flex;align-items:center;">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24" style="min-width:22px;"><path d="M21.94 2.73a1.5 1.5 0 0 0-1.6-.22L2.7 10.1a1.5 1.5 0 0 0 .13 2.8l4.7 1.6 2.1 6.3a1.5 1.5 0 0 0 2.7.2l2.2-3.7 4.7 3.5a1.5 1.5 0 0 0 2.3-1l3-16a1.5 1.5 0 0 0-.46-1.57z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </a>
+    </div>
     <form  id="tg" class="contacts-form reveal-on-scroll" autocomplete="off">
       <div class="input-group">
         <label for="name">Имя</label>
@@ -502,8 +539,6 @@
     <div>&copy; 2025 Tron. Все права защищены.</div>
     <div class="footer-socials">
       <a href="#" aria-label="Telegram"><svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M21.94 2.73a1.5 1.5 0 0 0-1.6-.22L2.7 10.1a1.5 1.5 0 0 0 .13 2.8l4.7 1.6 2.1 6.3a1.5 1.5 0 0 0 2.7.2l2.2-3.7 4.7 3.5a1.5 1.5 0 0 0 2.3-1l3-16a1.5 1.5 0 0 0-.46-1.57z" stroke="currentColor" stroke-width="1.5"/></svg></a>
-      <a href="#" aria-label="GitHub"><svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85.004 1.7.12 2.5.34 1.9-1.33 2.74-1.05 2.74-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z" stroke="currentColor" stroke-width="1.5"/></svg></a>
-      <a href="#" aria-label="LinkedIn"><svg width="22" height="22" fill="none" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v6M7 7v.01M12 10v6m0 0v-3a2 2 0 1 1 4 0v3" stroke="currentColor" stroke-width="1.5"/></svg></a>
     </div>
   </footer>
   <!-- Кнопка "Вверх" -->
