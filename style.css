@@ -15,6 +15,7 @@
   --radius-img: 8px;
   --radius-input: 12px;
   --transition: 0.3s cubic-bezier(.4,0,.2,1);
+  --header-height: 64px;
 }
 [data-theme="dark"] {
   --color-bg: #1D1D1F;
@@ -1602,38 +1603,6 @@ section.testimonials {
   opacity: 1;
 }
 
-.mobile-quicklinks {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  margin: 32px 0 18px 0;
-}
-.mobile-quicklinks a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--color-card-hover);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  color: var(--color-accent);
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-  font-size: 1.3rem;
-  opacity: 1;
-}
-.mobile-quicklinks a:hover {
-  background: var(--color-accent);
-  color: #fff;
-  opacity: 1;
-}
-.mobile-quicklinks svg {
-  width: 26px;
-  height: 26px;
-  stroke: currentColor;
-  opacity: 1;
-}
-
 .mobile-nav-content {
   flex: 1 1 auto;
   overflow-y: auto;
@@ -2424,5 +2393,112 @@ section.testimonials {
   }
   100% {
     filter: blur(0.1px) brightness(1.00001) opacity(0.0005);
+  }
+}
+
+.all-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 16px;
+  padding: 0 10px;
+}
+.all-tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: var(--color-bg);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid var(--color-divider);
+}
+.all-tech-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.all-tech-item img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+.all-tech-item span {
+  font-size: 0.85rem;
+  text-align: center;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+@media (min-width: 1101px) {
+  /* #showTechListBtn { display: none !important; } */ /* Удалено, чтобы кнопка могла быть видна на мобильных устройствах */
+}
+
+@media (max-width: 480px) {
+  .all-tech-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .all-tech-item img {
+    width: 60px;
+    height: 60px;
+  }
+  .all-tech-item span {
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1100px) {
+  .all-tech-grid {
+    grid-template-columns: repeat(5, 1fr); /* 5 колонок для планшетов */
+  }
+}
+
+/* Контейнер для кнопки "Технологии" на мобильных */
+.tech-list-button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px; /* Отступ сверху */
+  margin-bottom: 20px; /* Отступ снизу, чтобы расположить над текстом */
+}
+
+/* Стили для кнопки "Технологии" на мобильных */
+#showTechListBtn {
+  display: inline-flex; /* Сделать кнопку видимой на мобильных */
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: var(--color-accent);
+  color: #fff;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 113, 227, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+#showTechListBtn:hover {
+  background-color: #005bb5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 113, 227, 0.3);
+}
+
+#showTechListBtn svg {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Скрыть кнопку на больших экранах */
+@media (min-width: 1101px) {
+  .tech-list-button-container {
+    display: none !important; /* Скрываем контейнер на десктопе */
   }
 }

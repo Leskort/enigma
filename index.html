@@ -124,10 +124,10 @@
     <div class="tech-stack-marquee">
       <div class="slider">
         <div class="slide-track">
-          <div class="slide" data-title="HTML5" data-description="HTML5 – это язык разметки, используемый для структурирования и представления контента во Всемирной паутине." data-link="https://html.spec.whatwg.org/">
+          <div class="slide" data-title="HTML5" data-description="HTML5 – это язык разметки, используемый для структурирования и представления контента во Всемирной паутине.Вы можете нажать на иконку, чтобы узнать больше." data-link="https://html.spec.whatwg.org/">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
           </div>
-          <div class="slide" data-title="CSS3" data-description="CSS3 – это язык стилей, используемый для оформления веб-страниц, определяющий цвета, шрифты, макеты и многое другое." data-link="https://www.w3.org/Style/CSS/">
+          <div class="slide" data-title="CSS3" data-description="CSS3 – это язык стилей, используемый для оформления веб-страниц, определяющий цвета, шрифты, макеты и многое другое.Вы можете нажать на иконку, чтобы узнать больше." data-link="https://www.w3.org/Style/CSS/">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
           </div>
           <div class="slide" data-title="JavaScript" data-description="JavaScript – это язык программирования, который позволяет реализовать сложный функционал на веб-страницах, делая их интерактивными. Вы можете нажать на иконку, чтобы узнать больше." data-link="https://developer.mozilla.org/docs/Web/JavaScript">
@@ -221,6 +221,12 @@
         </div>
       </div>
     </div>
+    <div class="tech-list-button-container" id="showTechListBtnContainer">
+      <a href="#" aria-label="Быстрые ссылки" id="showTechListBtn">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+        <span>Технологии</span>
+      </a>
+    </div>
     <div class="tech-click-hint reveal-on-scroll">
       <p>
         Нажмите на иконку, чтобы узнать подробнее!
@@ -237,6 +243,15 @@
       </a>
       <h3 id="techModalTitle" style="font-size:1.3rem; font-weight:500; margin-bottom: 12px;"></h3>
       <p id="techModalDescription" style="margin-top: 0; opacity: 0.85; line-height: 1.6; font-size: 1rem;"></p>
+    </div>
+  </div>
+
+  <!-- Модальное окно для списка технологий -->
+  <div class="modal" id="allTechModal">
+    <div class="modal-content">
+      <button class="modal-close" id="allTechModalClose" aria-label="Закрыть">×</button>
+      <h3 style="font-size:1.3rem; font-weight:500; margin-bottom: 20px; text-align:center;">Все технологии</h3>
+      <div id="allTechList" class="all-tech-grid"></div>
     </div>
   </div>
 

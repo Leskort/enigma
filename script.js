@@ -95,30 +95,35 @@ const techModalDescription = document.getElementById('techModalDescription');
 const techModalClose = document.getElementById('techModalClose');
 const techModalIcon = document.getElementById('techModalIcon');
 
+// Функция для открытия модального окна с деталями технологии
+function openTechDetailsModal(slideElement) {
+  techModalTitle.textContent = slideElement.dataset.title;
+  techModalDescription.textContent = slideElement.dataset.description;
+
+  const slideImg = slideElement.querySelector('img');
+  if (slideImg) {
+    techModalIcon.src = slideImg.src;
+    techModalIcon.alt = slideImg.alt;
+  }
+
+  const techModalIconLink = document.getElementById('techModalIconLink');
+  if (techModalIconLink) {
+    techModalIconLink.href = slideElement.dataset.link || '#';
+    techModalIconLink.target = '_blank';
+    techModalIconLink.rel = 'noopener';
+  }
+
+  techModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  if (scrollToTopBtn) {
+    scrollToTopBtn.classList.add('hidden-by-modal');
+  }
+}
+
+// Обновляем существующие обработчики для использования новой функции
 document.querySelectorAll('.tech-stack-marquee .slide').forEach(slide => {
   slide.addEventListener('click', () => {
-    techModalTitle.textContent = slide.dataset.title;
-    techModalDescription.textContent = slide.dataset.description;
-
-    const slideImg = slide.querySelector('img');
-    if (slideImg) {
-      techModalIcon.src = slideImg.src;
-      techModalIcon.alt = slideImg.alt;
-    }
-
-    // Новое: подставляем ссылку на официальный сайт
-    const techModalIconLink = document.getElementById('techModalIconLink');
-    if (techModalIconLink) {
-      techModalIconLink.href = slide.dataset.link || '#';
-      techModalIconLink.target = '_blank';
-      techModalIconLink.rel = 'noopener';
-    }
-
-    techModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    if (scrollToTopBtn) {
-      scrollToTopBtn.classList.add('hidden-by-modal');
-    }
+    openTechDetailsModal(slide);
   });
 });
 
@@ -127,9 +132,9 @@ if (techModalClose) {
 }
 
 if (techModal) {
-  techModal.onclick = function(e) {
+  techModal.addEventListener('click', (e) => {
     if (e.target === techModal) closeTechModal();
-  };
+  });
 }
 
 function closeTechModal() {
@@ -141,6 +146,99 @@ function closeTechModal() {
     scrollToTopBtn.classList.remove('hidden-by-modal');
   }
 }
+
+// === Новое модальное окно для списка всех технологий ===
+const showTechListBtn = document.getElementById('showTechListBtn');
+const allTechModal = document.getElementById('allTechModal');
+const allTechModalClose = document.getElementById('allTechModalClose');
+const allTechList = document.getElementById('allTechList');
+
+// Функция для открытия модального окна со всеми технологиями
+function openAllTechModal() {
+  if (allTechModal) {
+    allTechModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (scrollToTopBtn) {
+      scrollToTopBtn.classList.add('hidden-by-modal');
+    }
+    populateAllTechList(); // Заполняем список при открытии
+  }
+}
+
+// Функция для закрытия модального окна со всеми технологиями
+function closeAllTechModal() {
+  if (allTechModal) {
+    allTechModal.classList.remove('active');
+  }
+  document.body.style.overflow = '';
+  if (scrollToTopBtn) {
+    scrollToTopBtn.classList.remove('hidden-by-modal');
+  }
+}
+
+// Добавляем обработчик для кнопки в мобильном меню (теперь плавающей)
+if (showTechListBtn) {
+  showTechListBtn.addEventListener('click', (e) => {
+    e.preventDefault(); // Предотвращаем переход по ссылке #
+    openAllTechModal();
+  });
+}
+
+// Добавляем обработчики для закрытия модального окна со всеми технологиями
+if (allTechModalClose) {
+  allTechModalClose.addEventListener('click', closeAllTechModal);
+}
+if (allTechModal) {
+  allTechModal.addEventListener('click', (e) => {
+    if (e.target === allTechModal) closeAllTechModal();
+  });
+}
+
+// Функция для заполнения списка всех технологий
+function populateAllTechList() {
+  if (!allTechList) return;
+
+  allTechList.innerHTML = ''; // Очищаем предыдущее содержимое
+
+  const techSlides = document.querySelectorAll('.tech-stack-marquee .slide');
+  techSlides.forEach(slide => {
+    const techItem = document.createElement('div');
+    techItem.classList.add('all-tech-item');
+
+    const img = document.createElement('img');
+    img.src = slide.querySelector('img').src;
+    img.alt = slide.querySelector('img').alt;
+
+    const span = document.createElement('span');
+    span.textContent = slide.dataset.title;
+
+    techItem.appendChild(img);
+    techItem.appendChild(span);
+
+    techItem.addEventListener('click', () => {
+      openTechDetailsModal(slide); // Открываем детальное модальное окно для выбранной технологии
+      closeAllTechModal(); // Закрываем модальное окно со списком технологий
+    });
+
+    allTechList.appendChild(techItem);
+  });
+}
+
+// === Показать/скрыть плавающую кнопку технологий при прокрутке ===
+// const showTechFloatBtn = () => { // Удалено
+//   if (window.innerWidth <= 1100 && !allTechModal.classList.contains('active')) { // Удалено
+//     techFloatBtn.classList.add('show'); // Удалено
+//   } else { // Удалено
+//     techFloatBtn.classList.remove('show'); // Удалено
+//   } // Удалено
+// }; // Удалено
+
+// if (techFloatBtn) { // Удалено
+//   window.addEventListener('scroll', showTechFloatBtn); // Удалено
+//   window.addEventListener('resize', showTechFloatBtn); // Удалено
+//   // Инициализация видимости кнопки при загрузке страницы // Удалено
+//   showTechFloatBtn(); // Удалено
+// }
 
 // === Форма контактов (валидация и имитация отправки) ===
 // const form = document.querySelector('.contacts-form');
