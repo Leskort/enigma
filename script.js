@@ -155,6 +155,9 @@ const allTechList = document.getElementById('allTechList');
 
 // Функция для открытия модального окна со всеми технологиями
 function openAllTechModal() {
+  if (window.innerWidth >= 1101) {
+    return;
+  }
   if (allTechModal) {
     allTechModal.classList.add('active');
     document.body.style.overflow = 'hidden';

@@ -2536,7 +2536,7 @@ section.testimonials {
 }
 
 /* Скрыть модальное окно всех технологий на больших экранах */
-@media (min-width: 1100px) {
+@media (min-width: 1101px) {
   #allTechModal {
     display: none !important; /* Скрываем модальное окно на десктопе */
   }
