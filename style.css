@@ -549,6 +549,7 @@ nav a:hover, nav a:focus {
   padding: 32px 32px 24px 32px;
   position: relative;
   animation: modalIn 0.3s cubic-bezier(.4,0,.2,1);
+  margin: 10px;
 }
 @keyframes modalIn {
   from { opacity: 0; transform: scale(0.96); }
@@ -576,6 +577,18 @@ nav a:hover, nav a:focus {
   margin-bottom: 24px;
   background: #fff;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+@media (max-width: 380px) {
+  .modal-content {
+    padding: 20px; /* Уменьшаем внутренние отступы для маленьких экранов */
+  }
+}
+
+@media (max-width: 320px) {
+  .modal-content {
+    padding: 10px; /* Уменьшаем внутренние отступы для очень маленьких экранов */
+  }
 }
 
 /* === Контакты === */
@@ -2441,6 +2454,9 @@ section.testimonials {
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
   }
+  .all-tech-item {
+    padding: 8px; /* Уменьшаем отступы для каждого элемента технологии */
+  }
   .all-tech-item img {
     width: 60px;
     height: 60px;
@@ -2500,5 +2516,28 @@ section.testimonials {
 @media (min-width: 1101px) {
   .tech-list-button-container {
     display: none !important; /* Скрываем контейнер на десктопе */
+  }
+}
+
+@media (max-width: 320px) {
+  .modal-content {
+    padding: 10px; /* Уменьшаем внутренние отступы для очень маленьких экранов */
+  }
+  .all-tech-grid {
+    gap: 8px; /* Уменьшаем отступ между элементами сетки */
+  }
+  .all-tech-item img {
+    width: 50px; /* Немного уменьшаем размер иконки */
+    height: 50px;
+  }
+  .all-tech-item span {
+    font-size: 0.65rem; /* Уменьшаем шрифт для названий технологий */
+  }
+}
+
+/* Скрыть модальное окно всех технологий на больших экранах */
+@media (min-width: 1100px) {
+  #allTechModal {
+    display: none !important; /* Скрываем модальное окно на десктопе */
   }
 }
