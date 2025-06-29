@@ -3,7 +3,9 @@
 :root {
   --color-bg: #FFFFFF;
   --color-fg: #1D1D1F;
+  --color-fg-rgb: 29, 29, 31; /* RGB для #1D1D1F */
   --color-accent: #0071E3;
+  --color-accent-rgb: 0, 113, 227; /* RGB для #0071E3 */
   --color-divider: #F5F5F7;
   --color-card-hover: #F9F9F9;
   --color-shadow: 0 4px 12px rgba(0,0,0,0.05);
@@ -17,6 +19,9 @@
 [data-theme="dark"] {
   --color-bg: #1D1D1F;
   --color-fg: #FFFFFF;
+  --color-fg-rgb: 255, 255, 255; /* RGB для #FFFFFF */
+  --color-accent: #0071E3;
+  --color-accent-rgb: 0, 113, 227; /* RGB для #0071E3 */
   --color-divider: #232326;
   --color-card-hover: #232326;
   --color-shadow: 0 4px 16px rgba(0,0,0,0.18);
@@ -64,22 +69,22 @@ header {
   font-weight: 700;
   font-size: 1.5rem;
   letter-spacing: 0.04em;
-  color: var(--color-accent);
+  color: var(--color-fg);
   user-select: none;
 }
 .logo-icon {
   flex-shrink: 0;
   width: 24px;
   height: 24px;
-  filter: drop-shadow(0 0 2px #0071E3) drop-shadow(0 0 4px #00cfff);
+  filter: drop-shadow(0 0 0.5px rgba(var(--color-fg-rgb), 0.005)) drop-shadow(0 0 1px rgba(var(--color-fg-rgb), 0.005));
   animation: logo-star-glow 2.8s infinite alternate;
 }
 @keyframes logo-star-glow {
   0% {
-    filter: drop-shadow(0 0 2px #0071E3) drop-shadow(0 0 4px #00cfff);
+    filter: drop-shadow(0 0 0.5px rgba(var(--color-fg-rgb), 0.005)) drop-shadow(0 0 1px rgba(var(--color-fg-rgb), 0.005));
   }
   100% {
-    filter: drop-shadow(0 0 6px #4FC3F7) drop-shadow(0 0 10px #0071E3);
+    filter: drop-shadow(0 0 2px rgba(var(--color-fg-rgb), 0.01)) drop-shadow(0 0 4px rgba(var(--color-fg-rgb), 0.01));
   }
 }
 nav {
@@ -2378,7 +2383,7 @@ section.testimonials {
 }
 
 .logo-text-tron {
-  background: linear-gradient(120deg, #00f0ff 0%, #0071E3 30%, #00f0ff 60%, #fff 80%, #00f0ff 100%);
+  background: linear-gradient(120deg, rgba(var(--color-fg-rgb), 0.05) 0%, rgba(var(--color-fg-rgb), 0.02) 30%, rgba(var(--color-fg-rgb), 0.05) 60%, rgba(var(--color-fg-rgb), 0.1) 80%, rgba(var(--color-fg-rgb), 0.05) 100%);
   background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
@@ -2399,24 +2404,25 @@ section.testimonials {
 
 .logo-glow {
   position: absolute;
+  left: 0;
   top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  background: radial-gradient(circle, #00CFFF 0%, transparent 70%);
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  z-index: 0;
+  pointer-events: none;
   border-radius: 50%;
-  filter: blur(2px) brightness(1.1) opacity(0.5);
+  filter: blur(0.1px) brightness(1.00001) opacity(0.0005); /* Ещё более прозрачно */
   animation: tron-glow-stripes 2.8s infinite alternate;
 }
 @keyframes tron-glow-stripes {
   0% {
-    filter: blur(2px) brightness(1.1) opacity(0.5);
+    filter: blur(0.1px) brightness(1.00001) opacity(0.0005);
   }
   50% {
-    filter: blur(4px) brightness(1.2) opacity(0.6);
+    filter: blur(0.2px) brightness(1.00005) opacity(0.001);
   }
   100% {
-    filter: blur(2px) brightness(1.1) opacity(0.5);
+    filter: blur(0.1px) brightness(1.00001) opacity(0.0005);
   }
 }
